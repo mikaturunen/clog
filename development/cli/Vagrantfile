@@ -1,0 +1,15 @@
+# Defines Vagrant environment for testing
+
+Vagrant.configure("2") do |config|
+    # Spin up a master machine for installing master to it
+    config.vm.define :server do |mgmt_config|
+        mgmt_config.vm.box = "ubuntu/trusty64"
+        mgmt_config.vm.hostname = "ansible-cli"
+        mgmt_config.vm.network :private_network, ip: "10.0.15.20"
+        mgmt_config.vm.provider "virtualbox" do |vb|
+            vb.name   = "ansible-cli"
+            vb.memory = "256"
+        end
+        mgmt_config.vm.provision :shell, path: "write-hosts-into-cli.sh"
+    end
+end

@@ -1,0 +1,8 @@
+# List all development hosts that we want to test against and are created by Vagrantfile.
+
+[master]
+127.0.0.1 ansible_port=2200 ansible_user=vagrant ansible_password=vagrant
+
+[nodes]
+127.0.0.1 ansible_port=2201 ansible_user=vagrant ansible_password=vagrant
+127.0.0.1 ansible_port=2202 ansible_user=vagrant ansible_password=vagrant
