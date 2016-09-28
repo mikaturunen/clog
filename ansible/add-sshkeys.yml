@@ -1,0 +1,15 @@
+---
+# Used to copy SSH keys into the targets before use - this is optional and only used when
+# you want to ease the pain with SSH deployments
+
+- hosts: all
+  become: yes
+  gather_facts: no
+  remote_user: "{{ user }}"
+
+  tasks:
+
+  - name: install ssh key
+    authorized_key: user="{{ user }}"
+                    key="{{ lookup('file', '{{ path }}') }}"
+                    state=present
