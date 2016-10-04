@@ -1,5 +1,35 @@
 ---
 
-- name: "Update packages"
-  apt: update_cache=yes
-  become: true
+- name: Install python setup tools
+  yum: name=python-setuptools state=present
+  tags: docker
+  become: yes
+
+- name: Install Pypi
+  easy_install: name=pip
+  tags: docker
+  become: yes
+
+- name: Install docker-py
+  pip: name=docker-py
+  tags: docker
+  become: yes
+
+- name: Install Docker
+  yum: name=docker state=latest
+  tags: docker
+  become: yes
+
+- name: Make sure Docker is running
+  service: name=docker state=running
+  tags: docker
+  become: yes
+
+#- name: redis container
+#  docker:
+#    name: myredis
+#    image: redis
+#    command: redis-server --appendonly yes
+#    state: started
+#    docker_api_version: 1.22
+#  become: yes
