@@ -1,8 +1,9 @@
-# List all development hosts that we want to test against and are created by Vagrantfile.
+# List all development hosts that we want to test against and are created by Vagrantfile. Update accordingly, depending on how
+# the vagrant associates the ports for the machines.
 
 [master]
-127.0.0.1 ansible_port=2200 ansible_user=vagrant ansible_password=vagrant
+127.0.0.1 ansible_port=2222 ansible_user=vagrant ansible_password=vagrant ansible_ssh_private_key_file=clog/development/swarm/.vagrant/machines/server/virtualbox/private_key
 
 [nodes]
-127.0.0.1 ansible_port=2201 ansible_user=vagrant ansible_password=vagrant
-127.0.0.1 ansible_port=2202 ansible_user=vagrant ansible_password=vagrant
+127.0.0.1 ansible_port=2200 ansible_user=vagrant ansible_password=vagrant ansible_ssh_private_key_file=clog/development/swarm/.vagrant/machines/swarm-node-1/virtualbox/private_key
+127.0.0.1 ansible_port=2201 ansible_user=vagrant ansible_password=vagrant ansible_ssh_private_key_file=clog/development/swarm/.vagrant/machines/swarm-node-2/virtualbox/private_key
