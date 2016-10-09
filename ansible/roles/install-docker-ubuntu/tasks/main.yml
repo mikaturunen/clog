@@ -1,0 +1,41 @@
+---
+
+-   name: Update APT cache
+    apt: update_cache=yes
+    tags: docker
+
+-   name: Install prerequisite packages | 1
+    apt: name=apt-transport-https state=present
+    tags: docker
+
+-   name: Install prerequisite packages | 2
+    apt: name=ca-certificates state=present
+    tags: docker
+
+-   name: Add new GPG key
+    apt_key: keyserver=hkp://p80.pool.sks-keyservers.net:80 id=58118E89F3A912897C070ADBF76221572C52609D state=present
+    tags: docker
+
+-   name: Write new docker.list sources content
+    apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-precise main' filename='docker' state=present
+    tags: docker
+
+-   name: Update APT cache after creating new docker.list
+    apt: update_cache=yes
+    tags: docker
+
+-   name: Install docker requirements | 1
+    apt: name=linux-image-extra-3.13.0-93-generic state=present
+    tags: docker
+
+-   name: Install docker requirements | 2
+    apt: name=linux-image-extra-virtual state=present
+    tags: docker
+
+-   name: Install docker engine
+    apt: name=docker-engine state=present
+    tags: docker
+
+-   name: Verify that docker engine is running
+    service: name=docker state=restarted
+    tags: docker

@@ -4,8 +4,8 @@
 # PLEASE NOTE: you will have to use full path to the private_key file for this to work properly, I've removed the full path as it's system specific, replace the '<INSERT_FULL_PATH_HERE>' part with your full path to the repo root.
 
 [master]
-127.0.0.1 ansible_port=2222 ansible_user=vagrant ansible_password=vagrant #ansible_ssh_private_key_file=<INSERT_FULL_PATH_HERE>/development/swarm/.vagrant/machines/server/virtualbox/private_key
+10.0.15.30 ansible_user=vagrant #ansible_ssh_private_key_file=<INSERT_FULL_PATH_HERE>/development/swarm/.vagrant/machines/server/virtualbox/private_key
 
 [nodes]
-127.0.0.1 ansible_port=2200 ansible_user=vagrant ansible_password=vagrant #ansible_ssh_private_key_file=<INSERT_FULL_PATH_HERE>/development/swarm/.vagrant/machines/swarm-node-1/virtualbox/private_key
-127.0.0.1 ansible_port=2201 ansible_user=vagrant ansible_password=vagrant #ansible_ssh_private_key_file=<INSERT_FULL_PATH_HERE>/development/swarm/.vagrant/machines/swarm-node-1/virtualbox/private_key
+10.0.15.41 ansible_user=vagrant #ansible_ssh_private_key_file=<INSERT_FULL_PATH_HERE>/development/swarm/.vagrant/machines/swarm-node-1/virtualbox/private_key
+10.0.15.42 ansible_user=vagrant #ansible_ssh_private_key_file=<INSERT_FULL_PATH_HERE>/development/swarm/.vagrant/machines/swarm-node-2/virtualbox/private_key
